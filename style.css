@@ -1,0 +1,83 @@
+body{
+  background-color:#333;
+  padding-top: 100px;
+}
+#board{
+  color:#FFF;
+  font-size:100px;
+  font-family: sans-serif;
+  text-align: center;
+  height:320px;
+  width:320px;
+  margin:auto;
+  background-color:#000
+}
+#tile-1{
+  float:left;
+  height:100px;
+  width:100px;
+  border-right: 5px solid #FFF;
+  border-bottom: 5px solid #FFF;
+}
+#tile-2{
+  float:left;
+  height:100px;
+  width:100px;
+  border-right: 5px solid #FFF;
+  border-bottom: 5px solid #FFF;
+  border-left: 5px solid #FFF;
+}
+#tile-3{
+  float: left;
+  height:100px;
+  width:100px;
+  border-left: 5px solid #FFF;
+  border-bottom: 5px solid #FFF;
+}
+#tile-4{
+  float: left;
+  height:100px;
+  width:100px;
+  border-right: 5px solid #FFF;
+  border-bottom: 5px solid #FFF;
+  border-top: 5px solid #FFF;
+}
+#tile-5{
+  float: left;
+  height:100px;
+  width:100px;
+  border-left: 5px solid #FFF;
+  border-bottom: 5px solid #FFF;
+  border-top: 5px solid #FFF;
+  border-right: 5px solid #FFF;
+}
+#tile-6{
+  float: left;
+  height:100px;
+  width:100px;
+  border-left: 5px solid #FFF;
+  border-bottom: 5px solid #FFF;
+  border-top: 5px solid #FFF;
+}
+#tile-7{
+  float: left;
+  height:100px;
+  width:100px;
+  border-top: 5px solid #FFF;
+  border-right: 5px solid #FFF;
+}
+#tile-8{
+  float: left;
+  height:100px;
+  width:100px;
+  border-left: 5px solid #FFF;
+  border-top: 5px solid #FFF;
+  border-right: 5px solid #FFF;
+}
+#tile-9{
+  float: left;
+  height:100px;
+  width:100px;
+  border-left: 5px solid #FFF;
+  border-top: 5px solid #FFF;
+}
