@@ -1,6 +1,7 @@
 $( document ).ready(function() {
   var winningCombinations=[[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]],
- xTiles=[], oTiles=[];
+ xTiles=[], oTiles=[], tile1Checked=null, tile2Checked=null,tile3Checked=null,tile4Checked=null,
+ tile5Checked=null,tile6Checked=null,tile7Checked=null,tile8Checked=null,tile9Checked=null;
 
  ymz.jq_confirm({
    title:"Choose a Team",
@@ -12,8 +13,16 @@ $( document ).ready(function() {
  });
 
 
+//player turn- click tiles
+
 $("#tile-1").click(function(){
-$("#tile-1").append("X");
+if(!tile1Checked){
+  $("#tile-1").append("X");
+xTiles.push(1);
+tile1Checked=1;
+didTheyWin(xTiles);
+}
+
 });
 $("#tile-2").click(function(){
 $("#tile-2").append("X");
@@ -42,7 +51,20 @@ $("#tile-9").append("X");
 
 
 
-
+function didTheyWin(arg){
+  for (i=0;i<winningCombinations.length;i++){
+    if (arg.indexOf(winningCombinations[i][0]) >= 0 &&
+   arg.indexOf(winningCombinations[i][1]) >= 0 &&
+   arg.indexOf(winningCombinations[i][2]) >= 0){
+      alert ("you win!");
+    }
+    }
+    alert("nope");
+  }
+    }
+    }
+  }
+}
 
 
 
