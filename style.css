@@ -1,6 +1,7 @@
 body{
   background-color:#333;
   padding-top: 100px;
+
 }
 #board{
   color:#FFF;
@@ -10,41 +11,81 @@ body{
   height:300px;
   width:300px;
   margin:auto;
-  background-color:#000
+  background-color:#000;
+  position: relative;
 }
 #tile-1{
+position: absolute;
+top:0;
+left:0;
 height:100px;
+width:100px;
 background-color:blue;
 }
 #tile-2{
+  position: absolute;
+  top:0;
+  left:100;
+  width:100px;
 height:100px;
 background-color:green;
 }
 #tile-3{
+  position: absolute;
+  top:0;
+  left:200;
+  width:100px;
 height:100px;
 background-color:yellow;
 }
 #tile-4{
+  position: absolute;
+  top:100;
+  left:0;
+  width:100px;
 height:100px;
 background-color:purple;
 }
 #tile-5{
+  position: absolute;
+  top:100;
+  left:100;
+  width:100px;
 height:100px;
 background-color:black;
 }
 #tile-6{
+  position: absolute;
+  top:100;
+  left:200;
+  width:100px;
 height:100px;
 background-color:red;
 }
 #tile-7{
+  position: absolute;
+  top:200;
+  left:0;
+  width:100px;
 height:100px;
 background-color:orange;
 }
 #tile-8{
+  position: absolute;
+  top:200;
+  left:100;
+  width:100px;
 height:100px;
 background-color:teal;
 }
 #tile-9{
+  position: absolute;
+  top:200;
+  left:200;
+  width:100px;
 height:100px;
 background-color:brown;
+}
+.game-tile{
+  display: none;
 }

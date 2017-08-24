@@ -1,20 +1,15 @@
+
+
 $( document ).ready(function() {
   var winningCombinations=[[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]],
  xTiles=[], oTiles=[], tile1Checked=null, tile2Checked=null,tile3Checked=null,tile4Checked=null,
  tile5Checked=null,tile6Checked=null,tile7Checked=null,tile8Checked=null,tile9Checked=null;
 
- ymz.jq_confirm({
-   title:"Choose a Team",
-   text:"Choose- X's or O's",
-   yes_btn:"X's",
-   no_btn:"O's",
-   yes_fn:function(){alert("Team X");},
-   no_fn:function(){alert("Team O");}
+ $("#board").click(function () {
+     $(".game-tile").slideToggle("slow");
  });
-
-
 //player turn- click tiles
-
+/*
 $("#tile-1").click(function(){
 if(!tile1Checked){
   $("#tile-1").append("X");
@@ -50,7 +45,6 @@ $("#tile-9").append("X");
 });
 
 
-
 function didTheyWin(arg){
   for (i=0;i<winningCombinations.length;i++){
     if (arg.indexOf(winningCombinations[i][0]) >= 0 &&
@@ -61,12 +55,7 @@ function didTheyWin(arg){
     }
     alert("nope");
   }
-    }
-    }
-  }
-}
-
-
+});*/
 
 
 });
