@@ -75,36 +75,32 @@ $(document).ready(function() {
         $('<span>X</span>').appendTo("#tile-" + tileNumber).hide().fadeIn('slow'); //check it
         tilesClicked.push(tileNumber); //mark it
         xTiles.push(tileNumber);
-        setTimeout(function(){
-        didTheyWin(xTiles);
-        //check for win/tie
-        if (!gameOver) {
-          if (!cpuIsCurrentTurn) {
-            if (player2 == "CPU" && player1 == "X") {
-              cpuTurn("O");
-            } else {
-              playerTurn = "O";
-            } //next player turn
+          didTheyWin(xTiles);
+          //check for win/tie
+          if (!gameOver) {
+            if (!cpuIsCurrentTurn) {
+              if (player2 == "CPU" && player1 == "X") {
+                cpuTurn("O");
+              } else {
+                playerTurn = "O";
+
+              } //next player turn
+            }
           }
-        }
-      }, 700);
-}
-      else {
+      } else {
         $('<span>O</span>').appendTo("#tile-" + tileNumber).hide().fadeIn('slow'); //check it
         tilesClicked.push(tileNumber); //mark it
         oTiles.push(tileNumber); //add to playerTiles
-setTimeout(function(){
-        didTheyWin(oTiles); //check for win/tie
-        if (!gameOver) {
-          if (!cpuIsCurrentTurn) {
-            if (player2 == "CPU" && player1 == "O") {
-              cpuTurn("X");
-            } else {
-              playerTurn = "X";
-            } //next player turn
+          didTheyWin(oTiles); //check for win/tie
+          if (!gameOver) {
+            if (!cpuIsCurrentTurn) {
+              if (player2 == "CPU" && player1 == "O") {
+                cpuTurn("X");
+              } else {
+                playerTurn = "X";
+              } //next player turn
+            }
           }
-        }
-        }, 700);
       }
     }
 
@@ -113,7 +109,7 @@ setTimeout(function(){
 
 
   var didTheyWin = function(playerTiles) {
-
+setTimeout(function() {
     for (i = 0; i < winningCombinations.length; i++) {
       if (playerTiles.indexOf(winningCombinations[i][0]) >= 0 &&
         playerTiles.indexOf(winningCombinations[i][1]) >= 0 &&
@@ -140,41 +136,43 @@ setTimeout(function(){
 
       }
     }
-
+  }, 1000);
   };
 
+
   var cpuTurn = function(cpuSide) {
-    setTimeout(function() {
       cpuIsCurrentTurn = true;
       if (cpuSide == "X") {
-      cpuTiles = xTiles;
- playerTiles = oTiles;
+        cpuTiles = xTiles;
+        playerTiles = oTiles;
         playerTurn = "X";
       } else {
         cpuTiles = oTiles;
-   playerTiles = xTiles;
+        playerTiles = xTiles;
         playerTurn = "O";
       }
-    for(i=0;i<8;i++){
-      if(cpuTiles.indexOf(winningCombinations[i][0]) != -1 &&
-        cpuTiles.indexOf(winningCombinations[i][1]) != -1)
-        {  $('body').find('#tile-' + winningCombinations[i][2]).trigger('click');
-      }
-    }
-    for(i=0;i<8;i++){
-      if(cpuTiles.indexOf(winningCombinations[i][0]) != -1 &&
-        cpuTiles.indexOf(winningCombinations[i][2]) != -1){
-        $('body').find('#tile-' + winningCombinations[i][1]).trigger('click');
-      }
-    }
-    for(i=0;i<8;i++){
-      if(cpuTiles.indexOf(winningCombinations[i][0]) != -1 &&
-        cpuTiles.indexOf(winningCombinations[i][2]) != -1){
-        $('body').find('#tile-' + winningCombinations[i][1]).trigger('click');
-      }
-    }
-
+      for (i = 0; i < 8; i++) {
           $('body').find('#tile-' + i).trigger('click');
+
+          /*if (cpuTiles.indexOf(winningCombinations[i][0]) != -1 &&
+          cpuTiles.indexOf(winningCombinations[i][1]) != -1) {
+          $('body').find('#tile-' + winningCombinations[i][2]).trigger('click');
+        }
+      }
+      for (i = 0; i < 8; i++) {
+        if (cpuTiles.indexOf(winningCombinations[i][0]) != -1 &&
+          cpuTiles.indexOf(winningCombinations[i][2]) != -1) {
+          $('body').find('#tile-' + winningCombinations[i][1]).trigger('click');
+        }
+      }
+      for (i = 0; i < 8; i++) {
+        if (cpuTiles.indexOf(winningCombinations[i][0]) != -1 &&
+          cpuTiles.indexOf(winningCombinations[i][2]) != -1) {
+          $('body').find('#tile-' + winningCombinations[i][1]).trigger('click');
+        }
+      }*/
+
+      $('body').find('#tile-' + i).trigger('click');
 
 
       cpuIsCurrentTurn = false;
@@ -183,7 +181,6 @@ setTimeout(function(){
       } else {
         playerTurn = "X";
       }
-    }, 1000);
   };
 
 });
