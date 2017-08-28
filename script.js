@@ -16,7 +16,32 @@ $(document).ready(function() {
     oTiles = [],
     tilesClicked = [],
     cpuIsCurrentTurn = false,
-    playerTurn = null;
+    playerTurn = null,
+    difficultyLevel = null;
+
+
+  $('body').on('click', '.towel', function() {
+        $("#board").empty();
+        $("#board").append('<div class="done"><br /> Well, we had a <br />good run</div>');
+  });
+
+  $('body').on('click', '.another-round', function() {location.reload();});
+
+    $('body').on('click', '.beginner', function() {
+      difficultyLevel = "beginner";
+      $("#board").empty();
+      $("#board").append('<div class="choose-team"><br /> Choose your <br />team <br /><br/></br/><span class="x">X</span><span class="o">O</span></div>');
+    });
+    $('body').on('click', '.pro', function() {
+      difficultyLevel = "pro";
+      $("#board").empty();
+      $("#board").append('<div class="choose-team"><br /> Choose your <br />team <br /><br/></br/><span class="x">X</span><span class="o">O</span></div>');
+    });
+    $('body').on('click', '.pointless', function() {
+      difficultyLevel = "pointless";
+      $("#board").empty();
+      $("#board").append('<div class="choose-team"><br /> Choose your <br />team <br /><br/></br/><span class="x">X</span><span class="o">O</span></div>');
+    });
 
   $('body').on('click', '.x', function() {
     playerTurn = "X";
@@ -72,35 +97,54 @@ $(document).ready(function() {
   var tileClickFunction = function(tileNumber) {
     if (tilesClicked.indexOf(tileNumber) == -1) { //make sure its not checked
       if (playerTurn == "X") {
-        $('<span>X</span>').appendTo("#tile-" + tileNumber).hide().fadeIn('slow'); //check it
+        $('<span>X</span>').appendTo("#tile-" + tileNumber).hide().fadeIn('fast'); //check it
         tilesClicked.push(tileNumber); //mark it
         xTiles.push(tileNumber);
-          didTheyWin(xTiles);
-          //check for win/tie
-          if (!gameOver) {
-            if (!cpuIsCurrentTurn) {
-              if (player2 == "CPU" && player1 == "X") {
-                cpuTurn("O");
-              } else {
-                playerTurn = "O";
-
-              } //next player turn
-            }
+        setTimeout(function(){
+        didTheyWin(xTiles);
+        //check for win/tie
+        if (!gameOver) {
+          if (cpuIsCurrentTurn==false) {
+            if (player2 == "CPU" && player1 == "X") {
+              cpuIsCurrentTurn = true;
+              cpuTurn("O");
+			}
+			else {
+			playerTurn = "O";}
+            } else {
+              playerTurn = "O";
+              cpuIsCurrentTurn = false;
+            } //next player turn
           }
-      } else {
-        $('<span>O</span>').appendTo("#tile-" + tileNumber).hide().fadeIn('slow'); //check it
+
+      }, 200);
+}
+
+      else {
+        $('<span>O</span>').appendTo("#tile-" + tileNumber).hide().fadeIn('fast'); //check it
         tilesClicked.push(tileNumber); //mark it
         oTiles.push(tileNumber); //add to playerTiles
-          didTheyWin(oTiles); //check for win/tie
-          if (!gameOver) {
-            if (!cpuIsCurrentTurn) {
-              if (player2 == "CPU" && player1 == "O") {
-                cpuTurn("X");
-              } else {
-                playerTurn = "X";
-              } //next player turn
+setTimeout(function(){
+        didTheyWin(oTiles); //check for win/tie
+        if (!gameOver) {
+
+          if (cpuIsCurrentTurn==false) {
+
+            if (player2 == "CPU" && player1 == "O") {
+
+              cpuIsCurrentTurn = true;
+              cpuTurn("X");
             }
+			             else {
+			 playerTurn = "X";}
           }
+             else {
+			 playerTurn = "X";
+              cpuIsCurrentTurn = false;
+             //next player turn
+          }
+        }
+      }, 200);
       }
     }
 
@@ -109,78 +153,194 @@ $(document).ready(function() {
 
 
   var didTheyWin = function(playerTiles) {
-setTimeout(function() {
+
     for (i = 0; i < winningCombinations.length; i++) {
       if (playerTiles.indexOf(winningCombinations[i][0]) >= 0 &&
         playerTiles.indexOf(winningCombinations[i][1]) >= 0 &&
         playerTiles.indexOf(winningCombinations[i][2]) >= 0) {
         gameOver = true;
-        var win = confirm(playerTurn + "wins!\n Play again?");
-        if (win == true) {
-          location.reload();
-
-        } else {
-          alert("Good game. \n Remember to shake hands.");
-
-        }
+        $("#board").empty();
+        if (cpuIsCurrentTurn == true){
+      $("#board").append('<div class="game-over"><br/>You fought the machine<br/>and the machine won. </br/></br/><span class="another-round">Another Round</span></br/><span class="towel">Throw in the Towel</span></div>');
+            return;
       }
+      else{
+          $("#board").append('<div class="game-over"><br/>Team '+playerTurn+'<br/>wins!<br /></br/><span class="another-round">Another Round</span></br/><span class="towel">Throw in the Towel</span></div>');
+      return;}
     }
+  }
     if (tilesClicked.length == 9) {
       gameOver = true;
-      var tie = confirm("Tie Game!\n Play again?");
-      if (tie == true) {
-        location.reload();
+    $("#board").empty();
 
-      } else {
-        alert("Good game. \n Remember to shake hands.");
+        $("#board").append('<div class="game-over"><br/>Team '+playerTurn+'<br/>wins!<br /></br/><span class="another-round">Another Round</span></br/><span class="towel">Throw in the Towel</span></div>');
+  return;  }
 
-      }
-    }
-  }, 1000);
+
   };
 
-
   var cpuTurn = function(cpuSide) {
-      cpuIsCurrentTurn = true;
-      if (cpuSide == "X") {
-        cpuTiles = xTiles;
-        playerTiles = oTiles;
+
+          if (cpuSide == "X") {
+      cpuTiles = xTiles;
+ playerTiles = oTiles;
         playerTurn = "X";
       } else {
         cpuTiles = oTiles;
-        playerTiles = xTiles;
+   playerTiles = xTiles;
         playerTurn = "O";
       }
-      for (i = 0; i < 8; i++) {
+
+
+switch (difficultyLevel) {
+  case "beginner":
+  for(i=1;i<10;i++){
+    if(tilesClicked.indexOf(i) == -1){
+
+            $('body').find('#tile-' + i).trigger('click');
+             return;
+          }
+  }
+    break;
+    case "pro":
+    for(i=0;i<8;i++){
+      if(cpuTiles.indexOf(winningCombinations[i][0]) != -1 &&
+  cpuTiles.indexOf(winningCombinations[i][1]) != -1&&
+  tilesClicked.indexOf(winningCombinations[i][2]) == -1)
+  {
+     $('body').find('#tile-' + winningCombinations[i][2]).trigger('click');
+     return;
+}
+}
+for(i=0;i<8;i++){
+if(cpuTiles.indexOf(winningCombinations[i][0]) != -1 &&
+  cpuTiles.indexOf(winningCombinations[i][2]) != -1 &&
+    tilesClicked.indexOf(winningCombinations[i][1]) == -1){
+  $('body').find('#tile-' + winningCombinations[i][1]).trigger('click');
+   return;
+}
+}
+for(i=0;i<8;i++){
+if(cpuTiles.indexOf(winningCombinations[i][1]) != -1 &&
+  cpuTiles.indexOf(winningCombinations[i][2]) != -1 &&
+    tilesClicked.indexOf(winningCombinations[i][0]) == -1){
+  $('body').find('#tile-' + winningCombinations[i][0]).trigger('click');
+   return;
+}
+}
+for(i=0;i<8;i++){
+if(playerTiles.indexOf(winningCombinations[i][0]) != -1 &&
+  playerTiles.indexOf(winningCombinations[i][1]) != -1 &&
+    tilesClicked.indexOf(winningCombinations[i][2]) == -1)
+  {
+     $('body').find('#tile-' + winningCombinations[i][2]).trigger('click');
+     return;
+}
+}
+for(i=0;i<8;i++){
+if(playerTiles.indexOf(winningCombinations[i][0]) != -1 &&
+  playerTiles.indexOf(winningCombinations[i][2]) != -1 &&
+    tilesClicked.indexOf(winningCombinations[i][1]) == -1){
+  $('body').find('#tile-' + winningCombinations[i][1]).trigger('click');
+   return;
+}
+}
+for(i=0;i<8;i++){
+if(playerTiles.indexOf(winningCombinations[i][1]) != -1 &&
+  playerTiles.indexOf(winningCombinations[i][2]) != -1 &&
+    tilesClicked.indexOf(winningCombinations[i][0]) == -1){
+  $('body').find('#tile-' + winningCombinations[i][0]).trigger('click');
+   return;
+}
+}
+for(i=1;i<10;i++){
+  if(tilesClicked.indexOf(i) == -1){
+
           $('body').find('#tile-' + i).trigger('click');
-
-          /*if (cpuTiles.indexOf(winningCombinations[i][0]) != -1 &&
-          cpuTiles.indexOf(winningCombinations[i][1]) != -1) {
-          $('body').find('#tile-' + winningCombinations[i][2]).trigger('click');
+           return;
         }
+}
+      break;
+        default:
+
+}
+          for(i=0;i<8;i++){
+            if(cpuTiles.indexOf(winningCombinations[i][0]) != -1 &&
+        cpuTiles.indexOf(winningCombinations[i][1]) != -1&&
+        tilesClicked.indexOf(winningCombinations[i][2]) == -1)
+        {
+           $('body').find('#tile-' + winningCombinations[i][2]).trigger('click');
+           return;
       }
-      for (i = 0; i < 8; i++) {
-        if (cpuTiles.indexOf(winningCombinations[i][0]) != -1 &&
-          cpuTiles.indexOf(winningCombinations[i][2]) != -1) {
-          $('body').find('#tile-' + winningCombinations[i][1]).trigger('click');
+    }
+    for(i=0;i<8;i++){
+      if(cpuTiles.indexOf(winningCombinations[i][0]) != -1 &&
+        cpuTiles.indexOf(winningCombinations[i][2]) != -1 &&
+          tilesClicked.indexOf(winningCombinations[i][1]) == -1){
+        $('body').find('#tile-' + winningCombinations[i][1]).trigger('click');
+         return;
+      }
+    }
+    for(i=0;i<8;i++){
+      if(cpuTiles.indexOf(winningCombinations[i][1]) != -1 &&
+        cpuTiles.indexOf(winningCombinations[i][2]) != -1 &&
+          tilesClicked.indexOf(winningCombinations[i][0]) == -1){
+        $('body').find('#tile-' + winningCombinations[i][0]).trigger('click');
+         return;
+      }
+    }
+    for(i=0;i<8;i++){
+      if(playerTiles.indexOf(winningCombinations[i][0]) != -1 &&
+        playerTiles.indexOf(winningCombinations[i][1]) != -1 &&
+          tilesClicked.indexOf(winningCombinations[i][2]) == -1)
+        {
+           $('body').find('#tile-' + winningCombinations[i][2]).trigger('click');
+           return;
+      }
+    }
+    for(i=0;i<8;i++){
+      if(playerTiles.indexOf(winningCombinations[i][0]) != -1 &&
+        playerTiles.indexOf(winningCombinations[i][2]) != -1 &&
+          tilesClicked.indexOf(winningCombinations[i][1]) == -1){
+        $('body').find('#tile-' + winningCombinations[i][1]).trigger('click');
+         return;
+      }
+    }
+    for(i=0;i<8;i++){
+      if(playerTiles.indexOf(winningCombinations[i][1]) != -1 &&
+        playerTiles.indexOf(winningCombinations[i][2]) != -1 &&
+          tilesClicked.indexOf(winningCombinations[i][0]) == -1){
+        $('body').find('#tile-' + winningCombinations[i][0]).trigger('click');
+         return;
+      }
+    }
+    if (playerTiles.length==1 && [1,3,7,9].indexOf(playerTiles[0])>-1){
+      $('body').find('#tile-5').trigger('click');
+      return;
+    }
+    if (playerTiles.length==2 && [1,9].indexOf(playerTiles[0])>-1 && [1,9].indexOf(playerTiles[1])>-1){
+      $('body').find('#tile-4').trigger('click');
+        return;
+    }
+    if (playerTiles.length==2 && [3,7].indexOf(playerTiles[0])>-1 && [3,7].indexOf(playerTiles[1])>-1){
+      $('body').find('#tile-2').trigger('click');
+        return;
+    }
+    if (playerTiles.length==2 && [2,4,6,8].indexOf(playerTiles[0])>-1 && [2,4,6,8].indexOf(playerTiles[1])>-1){
+      $('body').find('#tile-5').trigger('click');
+        return;
+    }
+
+for(i=1;i<10;i++){
+  if(tilesClicked.indexOf(i) == -1){
+
+          $('body').find('#tile-' + i).trigger('click');
+           return;
         }
-      }
-      for (i = 0; i < 8; i++) {
-        if (cpuTiles.indexOf(winningCombinations[i][0]) != -1 &&
-          cpuTiles.indexOf(winningCombinations[i][2]) != -1) {
-          $('body').find('#tile-' + winningCombinations[i][1]).trigger('click');
-        }
-      }*/
-
-      $('body').find('#tile-' + i).trigger('click');
+}
 
 
-      cpuIsCurrentTurn = false;
-      if (cpuSide == "X") {
-        playerTurn = "O";
-      } else {
-        playerTurn = "X";
-      }
+
   };
 
 });

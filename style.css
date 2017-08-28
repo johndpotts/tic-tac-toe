@@ -16,14 +16,33 @@ body{
   position: relative;
 
 }
-.choose-team{
-  font-size: 35;
+.choose-team,.choose-opponent,.done,.game-over{
+  font-size: 35px;
 }
-.choose-opponent{
-  font-size: 35;
+
+.towel,.another-round{
+  font-size: 20px;
 }
-  .x,.o,.CPU,.human{
+
+.x,.o,.CPU,.human,.towel,.another-round{
+
+  margin:20px;
+}
+  .x:hover,.o:hover,.CPU:hover,.human:hover,.pro:hover,.towel:hover,.another-round:hover{
     cursor:pointer;
+    color:yellow;
+    margin:20px;
+  }
+
+  .beginner:hover{
+    cursor:pointer;
+    color:green;
+    margin:20px;
+  }
+
+  .pointless:hover{
+    cursor:pointer;
+    color:red;
     margin:20px;
   }
 
