@@ -30,17 +30,17 @@ $(document).ready(function() {
     $('body').on('click', '.beginner', function() {
       difficultyLevel = "beginner";
       $("#board").empty();
-      $("#board").append('<div class="choose-team"><br /> Choose your <br />team <br /><br/></br/><span class="x">X</span><span class="o">O</span></div>');
+      $("#board").append('<div class="game-tile" id="tile-1"></div><div class="game-tile" id="tile-2"></div><div class="game-tile" id="tile-3"></div><div class="game-tile" id="tile-4"></div><div class="game-tile" id="tile-5"></div><div class="game-tile" id="tile-6"></div><div class="game-tile" id="tile-7"></div><div class="game-tile" id="tile-8"></div><div class="game-tile" id="tile-9"></div>');
     });
     $('body').on('click', '.pro', function() {
       difficultyLevel = "pro";
       $("#board").empty();
-      $("#board").append('<div class="choose-team"><br /> Choose your <br />team <br /><br/></br/><span class="x">X</span><span class="o">O</span></div>');
+      $("#board").append('<div class="game-tile" id="tile-1"></div><div class="game-tile" id="tile-2"></div><div class="game-tile" id="tile-3"></div><div class="game-tile" id="tile-4"></div><div class="game-tile" id="tile-5"></div><div class="game-tile" id="tile-6"></div><div class="game-tile" id="tile-7"></div><div class="game-tile" id="tile-8"></div><div class="game-tile" id="tile-9"></div>');
     });
     $('body').on('click', '.pointless', function() {
       difficultyLevel = "pointless";
       $("#board").empty();
-      $("#board").append('<div class="choose-team"><br /> Choose your <br />team <br /><br/></br/><span class="x">X</span><span class="o">O</span></div>');
+      $("#board").append('<div class="game-tile" id="tile-1"></div><div class="game-tile" id="tile-2"></div><div class="game-tile" id="tile-3"></div><div class="game-tile" id="tile-4"></div><div class="game-tile" id="tile-5"></div><div class="game-tile" id="tile-6"></div><div class="game-tile" id="tile-7"></div><div class="game-tile" id="tile-8"></div><div class="game-tile" id="tile-9"></div>');
     });
 
   $('body').on('click', '.x', function() {
@@ -58,7 +58,7 @@ $(document).ready(function() {
   $('body').on('click', '.cpu', function() {
     player2 = "CPU";
     $("#board").empty();
-    $("#board").append('<div class="game-tile" id="tile-1"></div><div class="game-tile" id="tile-2"></div><div class="game-tile" id="tile-3"></div><div class="game-tile" id="tile-4"></div><div class="game-tile" id="tile-5"></div><div class="game-tile" id="tile-6"></div><div class="game-tile" id="tile-7"></div><div class="game-tile" id="tile-8"></div><div class="game-tile" id="tile-9"></div>');
+    $("#board").append('<div class="choose-team"><br /> Choose your <br />difficulty <br /><br/><span class="beginner">Beginner</span><br/><span class="pro">Pro</span><br/><span class="pointless">Pointless</span></div></div>');
   });
   $('body').on('click', '.human', function() {
     $("#board").empty();
