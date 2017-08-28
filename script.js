@@ -173,7 +173,7 @@ setTimeout(function(){
       gameOver = true;
     $("#board").empty();
 
-        $("#board").append('<div class="game-over"><br/>Team '+playerTurn+'<br/>wins!<br /></br/><span class="another-round">Another Round</span></br/><span class="towel">Throw in the Towel</span></div>');
+        $("#board").append('<div class="game-over"><br/>It comes out<br/>to a draw<br /></br/><span class="another-round">Another Round</span></br/><span class="towel">Throw in the Towel</span></div>');
   return;  }
 
 
