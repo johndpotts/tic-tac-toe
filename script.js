@@ -314,22 +314,37 @@ for(i=1;i<10;i++){
          return;
       }
     }
-    if (playerTiles.length==1 && [1,3,7,9].indexOf(playerTiles[0])>-1){
+    if (playerTiles.length==1 && [1,2,3,4,6,7,8,9].indexOf(playerTiles[0])>-1){
       $('body').find('#tile-5').trigger('click');
       return;
     }
     if (playerTiles.length==2 && [1,9].indexOf(playerTiles[0])>-1 && [1,9].indexOf(playerTiles[1])>-1){
       $('body').find('#tile-4').trigger('click');
-        return;
-    }
+	return;}
+		 if (playerTiles.length==2 && [3,8].indexOf(playerTiles[0])>-1 && [3,8].indexOf(playerTiles[1])>-1){
+      $('body').find('#tile-9').trigger('click');
+		 return;}
+		 if (playerTiles.length==2 && [4,9].indexOf(playerTiles[0])>-1 && [4,9].indexOf(playerTiles[1])>-1){
+      $('body').find('#tile-7').trigger('click');
+		 return;}
+		 if (playerTiles.length==2 && [1,6].indexOf(playerTiles[0])>-1 && [1,6].indexOf(playerTiles[1])>-1){
+      $('body').find('#tile-3').trigger('click');
+		 return;}
+		 if (playerTiles.length==2 && [1,8].indexOf(playerTiles[0])>-1 && [1,8].indexOf(playerTiles[1])>-1){
+      $('body').find('#tile-7').trigger('click');
+		 return;}
+		  if (playerTiles.length==2 && [6,7].indexOf(playerTiles[0])>-1 && [6,7].indexOf(playerTiles[1])>-1){
+      $('body').find('#tile-9').trigger('click');
+		 return;}
+		 if (playerTiles.length==2 && [2,9].indexOf(playerTiles[0])>-1 && [2,9].indexOf(playerTiles[1])>-1){
+      $('body').find('#tile-3').trigger('click');
+		 return;}
+    
     if (playerTiles.length==2 && [3,7].indexOf(playerTiles[0])>-1 && [3,7].indexOf(playerTiles[1])>-1){
       $('body').find('#tile-2').trigger('click');
         return;
     }
-    if (playerTiles.length==2 && [2,4,6,8].indexOf(playerTiles[0])>-1 && [2,4,6,8].indexOf(playerTiles[1])>-1){
-      $('body').find('#tile-5').trigger('click');
-        return;
-    }
+    
 
 for(i=1;i<10;i++){
   if(tilesClicked.indexOf(i) == -1){
