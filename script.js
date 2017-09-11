@@ -77,6 +77,7 @@ $(document).ready(function() {
     window.navigator.vibrate(10);
     $("#board").empty();
     $("#board").append('<div class="game-tile" id="tile-1"></div><div class="game-tile" id="tile-2"></div><div class="game-tile" id="tile-3"></div><div class="game-tile" id="tile-4"></div><div class="game-tile" id="tile-5"></div><div class="game-tile" id="tile-6"></div><div class="game-tile" id="tile-7"></div><div class="game-tile" id="tile-8"></div><div class="game-tile" id="tile-9"></div>');
+    $('#board').addClass('chalk-lines');
   });
 
   $('body').on('click', '#tile-1', function() {
