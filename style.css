@@ -1,30 +1,43 @@
 body{
-  background-color:#333;
-  padding-top: 100px;
-  box-sizing: border-box;
 
+  background-image:url("background.jpg");
+  padding-top: 60px;
+  box-sizing: border-box;
+  font-family: 'Finger Paint', cursive;
+  color: #EEE;
+  text-align: center;
 }
+.chalk-lines{
+  background-image:url('board.png');
+}
+footer{
+  font-size: 16px;
+  margin-top: 40px;
+}
+
 #board{
-  color:#FFF;
+  font-family: 'Finger Paint', cursive;
+  color:#EEE;
   font-size:100px;
-  font-family: sans-serif;
   text-align: center;
   height:300px;
   width:300px;
   margin:auto;
-  background-color:#000;
   position: relative;
 
 }
-.choose-team,.choose-opponent,.done,.game-over{
-  font-size: 35px;
+.choose-team,.choose-opponent{
+  font-size:30px;
 }
 
-.towel,.another-round{
-  font-size: 20px;
+.done,.game-over,.towel,.another-round{
+  font-size: 25px;
 }
-
-.x,.o,.CPU,.human,.towel,.another-round{
+.x,.o{
+  margin: 20px;
+  font-size: 50px;
+}
+.CPU,.human,.towel,.another-round{
 
   margin:20px;
 }
@@ -50,10 +63,9 @@ body{
 position: absolute;
 top:0;
 left:0;
-border:5px solid white;
+line-height:90px;
 height:100px;
 width:100px;
-background-color:black;
 }
 #tile-2{
   position: absolute;
@@ -61,8 +73,7 @@ background-color:black;
   left:100;
   width:100px;
 height:100px;
-border:5px solid white;
-background-color:black;
+line-height:90px;
 }
 #tile-3{
   position: absolute;
@@ -70,8 +81,7 @@ background-color:black;
   left:200;
   width:100px;
 height:100px;
-border:5px solid white;
-background-color:black;
+line-height:90px;
 }
 #tile-4{
   position: absolute;
@@ -79,8 +89,7 @@ background-color:black;
   left:0;
   width:100px;
 height:100px;
-border:5px solid white;
-background-color:black;
+line-height:90px;
 }
 #tile-5{
   position: absolute;
@@ -88,17 +97,15 @@ background-color:black;
   left:100;
   width:100px;
 height:100px;
-border:5px solid white;
-background-color:black;
+line-height:90px;
 }
 #tile-6{
   position: absolute;
   top:100;
   left:200;
-border:5px solid white;
+line-height:90px;
   width:100px;
 height:100px;
-background-color:black;
 }
 #tile-7{
   position: absolute;
@@ -106,8 +113,7 @@ background-color:black;
   left:0;
   width:100px;
 height:100px;
-border:5px solid white;
-background-color:black;
+line-height:90px;
 }
 #tile-8{
   position: absolute;
@@ -115,8 +121,7 @@ background-color:black;
   left:100;
   width:100px;
 height:100px;
-border:5px solid white;
-background-color:black;
+line-height:90px;
 }
 #tile-9{
   position: absolute;
@@ -124,10 +129,5 @@ background-color:black;
   left:200;
   width:100px;
 height:100px;
-border:5px solid white;
-background-color:black;
-}
-.game-tile{
-  background-color: orange;
-
+line-height:90px;
 }

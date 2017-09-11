@@ -31,16 +31,19 @@ $(document).ready(function() {
       difficultyLevel = "beginner";
       $("#board").empty();
       $("#board").append('<div class="game-tile" id="tile-1"></div><div class="game-tile" id="tile-2"></div><div class="game-tile" id="tile-3"></div><div class="game-tile" id="tile-4"></div><div class="game-tile" id="tile-5"></div><div class="game-tile" id="tile-6"></div><div class="game-tile" id="tile-7"></div><div class="game-tile" id="tile-8"></div><div class="game-tile" id="tile-9"></div>');
+      $('#board').addClass('chalk-lines');
     });
     $('body').on('click', '.pro', function() {
       difficultyLevel = "pro";
       $("#board").empty();
       $("#board").append('<div class="game-tile" id="tile-1"></div><div class="game-tile" id="tile-2"></div><div class="game-tile" id="tile-3"></div><div class="game-tile" id="tile-4"></div><div class="game-tile" id="tile-5"></div><div class="game-tile" id="tile-6"></div><div class="game-tile" id="tile-7"></div><div class="game-tile" id="tile-8"></div><div class="game-tile" id="tile-9"></div>');
-    });
+      $('#board').addClass('chalk-lines');
+  });
     $('body').on('click', '.pointless', function() {
       difficultyLevel = "pointless";
       $("#board").empty();
       $("#board").append('<div class="game-tile" id="tile-1"></div><div class="game-tile" id="tile-2"></div><div class="game-tile" id="tile-3"></div><div class="game-tile" id="tile-4"></div><div class="game-tile" id="tile-5"></div><div class="game-tile" id="tile-6"></div><div class="game-tile" id="tile-7"></div><div class="game-tile" id="tile-8"></div><div class="game-tile" id="tile-9"></div>');
+  $('#board').addClass('chalk-lines');
     });
 
   $('body').on('click', '.x', function() {
@@ -159,7 +162,9 @@ setTimeout(function(){
         playerTiles.indexOf(winningCombinations[i][1]) >= 0 &&
         playerTiles.indexOf(winningCombinations[i][2]) >= 0) {
         gameOver = true;
-        $("#board").empty();
+      setTimeout( function(){
+          $("#board").empty();
+        $('#board').removeClass('chalk-lines');
         if (cpuIsCurrentTurn == true){
       $("#board").append('<div class="game-over"><br/>You fought the machine<br/>and the machine won. </br/></br/><span class="another-round">Another Round</span></br/><span class="towel">Throw in the Towel</span></div>');
             return;
@@ -167,14 +172,15 @@ setTimeout(function(){
       else{
           $("#board").append('<div class="game-over"><br/>Team '+playerTurn+'<br/>wins!<br /></br/><span class="another-round">Another Round</span></br/><span class="towel">Throw in the Towel</span></div>');
       return;}
-    }
+    },1500)}
   }
     if (tilesClicked.length == 9) {
       gameOver = true;
+  setTimeout( function(){
     $("#board").empty();
-
+$('#board').removeClass('chalk-lines');
         $("#board").append('<div class="game-over"><br/>It comes out<br/>to a draw<br /></br/><span class="another-round">Another Round</span></br/><span class="towel">Throw in the Towel</span></div>');
-  return;  }
+  return; },1500) }
 
 
   };
@@ -339,12 +345,12 @@ for(i=1;i<10;i++){
 		 if (playerTiles.length==2 && [2,9].indexOf(playerTiles[0])>-1 && [2,9].indexOf(playerTiles[1])>-1){
       $('body').find('#tile-3').trigger('click');
 		 return;}
-    
+
     if (playerTiles.length==2 && [3,7].indexOf(playerTiles[0])>-1 && [3,7].indexOf(playerTiles[1])>-1){
       $('body').find('#tile-2').trigger('click');
         return;
     }
-    
+
 
 for(i=1;i<10;i++){
   if(tilesClicked.indexOf(i) == -1){
