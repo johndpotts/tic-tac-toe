@@ -21,25 +21,29 @@ $(document).ready(function() {
 
 
   $('body').on('click', '.towel', function() {
+    window.navigator.vibrate(10);
         $("#board").empty();
         $("#board").append('<div class="done"><br /> Well, we had a <br />good run</div>');
   });
 
-  $('body').on('click', '.another-round', function() {location.reload();});
+  $('body').on('click', '.another-round', function() {window.navigator.vibrate(10); location.reload();});
 
     $('body').on('click', '.beginner', function() {
+      window.navigator.vibrate(10);
       difficultyLevel = "beginner";
       $("#board").empty();
       $("#board").append('<div class="game-tile" id="tile-1"></div><div class="game-tile" id="tile-2"></div><div class="game-tile" id="tile-3"></div><div class="game-tile" id="tile-4"></div><div class="game-tile" id="tile-5"></div><div class="game-tile" id="tile-6"></div><div class="game-tile" id="tile-7"></div><div class="game-tile" id="tile-8"></div><div class="game-tile" id="tile-9"></div>');
       $('#board').addClass('chalk-lines');
     });
     $('body').on('click', '.pro', function() {
+      window.navigator.vibrate(10);
       difficultyLevel = "pro";
       $("#board").empty();
       $("#board").append('<div class="game-tile" id="tile-1"></div><div class="game-tile" id="tile-2"></div><div class="game-tile" id="tile-3"></div><div class="game-tile" id="tile-4"></div><div class="game-tile" id="tile-5"></div><div class="game-tile" id="tile-6"></div><div class="game-tile" id="tile-7"></div><div class="game-tile" id="tile-8"></div><div class="game-tile" id="tile-9"></div>');
       $('#board').addClass('chalk-lines');
   });
     $('body').on('click', '.pointless', function() {
+      window.navigator.vibrate(10);
       difficultyLevel = "pointless";
       $("#board").empty();
       $("#board").append('<div class="game-tile" id="tile-1"></div><div class="game-tile" id="tile-2"></div><div class="game-tile" id="tile-3"></div><div class="game-tile" id="tile-4"></div><div class="game-tile" id="tile-5"></div><div class="game-tile" id="tile-6"></div><div class="game-tile" id="tile-7"></div><div class="game-tile" id="tile-8"></div><div class="game-tile" id="tile-9"></div>');
@@ -47,6 +51,7 @@ $(document).ready(function() {
     });
 
   $('body').on('click', '.x', function() {
+    window.navigator.vibrate(10);
     playerTurn = "X";
     player1 = "X";
     $("#board").empty();
@@ -55,15 +60,18 @@ $(document).ready(function() {
   $('body').on('click', '.o', function() {
     playerTurn = "O";
     player1 = "O";
+window.navigator.vibrate(10);
     $("#board").empty();
     $("#board").append('<div class ="choose-opponent"><br />Choose your <br />opponent <br /><br/></br/><span class="cpu">CPU</span><span class ="human">Human</span></div>');
   });
   $('body').on('click', '.cpu', function() {
     player2 = "CPU";
+    window.navigator.vibrate(10);
     $("#board").empty();
     $("#board").append('<div class="choose-team"><br /> Choose your <br />difficulty <br /><br/><span class="beginner">Beginner</span><br/><span class="pro">Pro</span><br/><span class="pointless">Pointless</span></div></div>');
   });
   $('body').on('click', '.human', function() {
+window.navigator.vibrate(10);
     $("#board").empty();
     $("#board").append('<div class="game-tile" id="tile-1"></div><div class="game-tile" id="tile-2"></div><div class="game-tile" id="tile-3"></div><div class="game-tile" id="tile-4"></div><div class="game-tile" id="tile-5"></div><div class="game-tile" id="tile-6"></div><div class="game-tile" id="tile-7"></div><div class="game-tile" id="tile-8"></div><div class="game-tile" id="tile-9"></div>');
   });
@@ -99,6 +107,7 @@ $(document).ready(function() {
 
   var tileClickFunction = function(tileNumber) {
     if (tilesClicked.indexOf(tileNumber) == -1) { //make sure its not checked
+window.navigator.vibrate(10);
       if (playerTurn == "X") {
         $('<span>X</span>').appendTo("#tile-" + tileNumber).hide().fadeIn('fast'); //check it
         tilesClicked.push(tileNumber); //mark it
