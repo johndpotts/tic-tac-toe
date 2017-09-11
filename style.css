@@ -1,133 +1,144 @@
-body{
-
-  background-image:url("background.jpg");
+body {
+  background-image: url("background.jpg");
   padding-top: 60px;
   box-sizing: border-box;
   font-family: 'Finger Paint', cursive;
   color: #EEE;
   text-align: center;
 }
-.chalk-lines{
-  background-image:url('board.png');
+
+.chalk-lines {
+  background-image: url('board.png');
 }
-footer{
+
+footer {
   font-size: 16px;
   margin-top: 40px;
 }
 
-#board{
+#board {
   font-family: 'Finger Paint', cursive;
-  color:#EEE;
-  font-size:100px;
+  color: #EEE;
+  font-size: 100px;
   text-align: center;
-  height:300px;
-  width:300px;
-  margin:auto;
+  height: 300px;
+  width: 300px;
+  margin: auto;
   position: relative;
-
-}
-.choose-team,.choose-opponent{
-  font-size:30px;
 }
 
-.done,.game-over,.towel,.another-round{
+.choose-team, .choose-opponent {
+  font-size: 30px;
+}
+
+.done, .game-over, .towel, .another-round {
   font-size: 25px;
 }
-.x,.o{
+
+.x, .o {
   margin: 20px;
   font-size: 50px;
 }
-.CPU,.human,.towel,.another-round{
 
-  margin:20px;
+.CPU, .human, .towel, .another-round {
+  margin: 20px;
 }
-  .x:hover,.o:hover,.CPU:hover,.human:hover,.pro:hover,.towel:hover,.another-round:hover{
-    cursor:pointer;
-    color:yellow;
-    margin:20px;
-  }
 
-  .beginner:hover{
-    cursor:pointer;
-    color:green;
-    margin:20px;
-  }
+.x:hover, .o:hover, .CPU:hover, .human:hover, .pro:hover, .towel:hover, .another-round:hover {
+  cursor: pointer;
+  color: yellow;
+  margin: 20px;
+}
 
-  .pointless:hover{
-    cursor:pointer;
-    color:red;
-    margin:20px;
-  }
+.beginner:hover {
+  cursor: pointer;
+  color: green;
+  margin: 20px;
+}
 
-#tile-1{
-position: absolute;
-top:0;
-left:0;
-line-height:90px;
-height:100px;
-width:100px;
+.pointless:hover {
+  cursor: pointer;
+  color: red;
+  margin: 20px;
 }
-#tile-2{
+
+#tile-1 {
   position: absolute;
-  top:0;
-  left:100;
-  width:100px;
-height:100px;
-line-height:90px;
+  top: 0;
+  left: 0;
+  line-height: 90px;
+  height: 100px;
+  width: 100px;
 }
-#tile-3{
+
+#tile-2 {
   position: absolute;
-  top:0;
-  left:200;
-  width:100px;
-height:100px;
-line-height:90px;
+  top: 0;
+  left: 100;
+  width: 100px;
+  height: 100px;
+  line-height: 90px;
 }
-#tile-4{
+
+#tile-3 {
   position: absolute;
-  top:100;
-  left:0;
-  width:100px;
-height:100px;
-line-height:90px;
+  top: 0;
+  left: 200;
+  width: 100px;
+  height: 100px;
+  line-height: 90px;
 }
-#tile-5{
+
+#tile-4 {
   position: absolute;
-  top:100;
-  left:100;
-  width:100px;
-height:100px;
-line-height:90px;
+  top: 100;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  line-height: 90px;
 }
-#tile-6{
+
+#tile-5 {
   position: absolute;
-  top:100;
-  left:200;
-line-height:90px;
-  width:100px;
-height:100px;
+  top: 100;
+  left: 100;
+  width: 100px;
+  height: 100px;
+  line-height: 90px;
 }
-#tile-7{
+
+#tile-6 {
   position: absolute;
-  top:200;
-  left:0;
-  width:100px;
-height:100px;
-line-height:90px;
+  top: 100;
+  left: 200;
+  line-height: 90px;
+  width: 100px;
+  height: 100px;
 }
-#tile-8{
+
+#tile-7 {
   position: absolute;
-  top:200;
-  left:100;
-  width:100px;
-height:100px;
-line-height:90px;
+  top: 200;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  line-height: 90px;
 }
-#tile-9{
+
+#tile-8 {
   position: absolute;
-  top:200;
-  left:200;
-  width:100px;
-height:100px;
-line-height:90px;
+  top: 200;
+  left: 100;
+  width: 100px;
+  height: 100px;
+  line-height: 90px;
+}
+
+#tile-9 {
+  position: absolute;
+  top: 200;
+  left: 200;
+  width: 100px;
+  height: 100px;
+  line-height: 90px;
 }
