@@ -81,7 +81,6 @@ $(document).ready(function() {
   });
 
   $('body').on('click', '#tile-1', function() {
-    console.log("1");
     tileClickFunction(1);
   });
   $('body').on('click', '#tile-2', function() {
@@ -110,6 +109,7 @@ $(document).ready(function() {
   });
 
   var tileClickFunction = function(tileNumber) {
+if (!gameOver){
     if (tilesClicked.indexOf(tileNumber) == -1) { //make sure its not checked
       window.navigator.vibrate(10);
       if (playerTurn == "X") {
@@ -160,7 +160,7 @@ $(document).ready(function() {
         }, 200);
       }
     }
-
+}
   };
 
 
@@ -185,7 +185,7 @@ $(document).ready(function() {
         }, 1500)
       }
     }
-    if (tilesClicked.length == 9) {
+    if (tilesClicked.length == 9 && gameOver == false) {
       gameOver = true;
       setTimeout(function() {
         $("#board").empty();
