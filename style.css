@@ -29,22 +29,26 @@ footer {
 
 .choose-team, .choose-opponent {
   font-size: 30px;
+  
 }
 
 .done, .game-over, .towel, .another-round {
   font-size: 25px;
+  cursor: pointer;
 }
 
 .x, .o {
   margin: 20px;
   font-size: 50px;
+  cursor: pointer;
 }
 
-.CPU, .human, .towel, .another-round {
+.cpu, .human, .towel, .another-round {
   margin: 20px;
+  cursor: pointer;
 }
-
-.x:hover, .o:hover, .CPU:hover, .human:hover, .pro:hover, .towel:hover, .another-round:hover {
+/*
+.x:hover, .o:hover, .cpu:hover, .human:hover, .pro:hover, .towel:hover, .another-round:hover {
   cursor: pointer;
   color: yellow;
   margin: 20px;
@@ -60,85 +64,96 @@ footer {
   cursor: pointer;
   color: red;
   margin: 20px;
-}
+} */
 
 #tile-1 {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0px;
+  left: 0px;
   line-height: 90px;
   height: 100px;
   width: 100px;
+  cursor: pointer;
 }
 
 #tile-2 {
   position: absolute;
-  top: 0;
-  left: 100;
+  top: 0px;
+  left: 100px;
   width: 100px;
   height: 100px;
   line-height: 90px;
+  cursor: pointer;
 }
 
 #tile-3 {
   position: absolute;
-  top: 0;
-  left: 200;
+  top: 0px;
+  left: 200px;
   width: 100px;
   height: 100px;
   line-height: 90px;
+  cursor: pointer;
 }
 
 #tile-4 {
   position: absolute;
-  top: 100;
-  left: 0;
+  top: 100px;
+  left: 0px;
   width: 100px;
   height: 100px;
   line-height: 90px;
+  cursor: pointer;
 }
 
 #tile-5 {
   position: absolute;
-  top: 100;
-  left: 100;
+  top: 100px;
+  left: 100px;
   width: 100px;
   height: 100px;
   line-height: 90px;
+  cursor: pointer;
 }
 
 #tile-6 {
   position: absolute;
-  top: 100;
-  left: 200;
+  top: 100px;
+  left: 200px;
   line-height: 90px;
   width: 100px;
   height: 100px;
+  cursor: pointer;
 }
 
 #tile-7 {
   position: absolute;
-  top: 200;
-  left: 0;
+  top: 200px;
+  left: 0px;
   width: 100px;
   height: 100px;
   line-height: 90px;
+  cursor: pointer;
 }
 
 #tile-8 {
   position: absolute;
-  top: 200;
-  left: 100;
+  top: 200px;
+  left: 100px;
   width: 100px;
   height: 100px;
   line-height: 90px;
+  cursor: pointer;
 }
 
 #tile-9 {
   position: absolute;
-  top: 200;
-  left: 200;
+  top: 200px;
+  left: 200px;
   width: 100px;
   height: 100px;
   line-height: 90px;
+  cursor: pointer;
 }
+
+a{color: #EEEEEE; text-decoration:none;}
