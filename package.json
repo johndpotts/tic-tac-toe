@@ -16,7 +16,9 @@
     "url": "https://github.com/johndpotts/tic-tac-toe/issues"
   },
   "homepage": "https://github.com/johndpotts/tic-tac-toe#readme",
-  "dependencies": {
-    "gulp": "^3.9.1"
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0"
   }
 }
